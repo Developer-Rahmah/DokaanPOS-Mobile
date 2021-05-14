@@ -1,19 +1,15 @@
-import { useNavigation } from '@react-navigation/core'
-import { Fab, View } from 'native-base'
-import React, { useContext, useEffect, useState } from 'react'
-import styles from 'DokaanPOS/assets/styles'
-import ProductCard from './displays/ProductCard'
-import { Modal } from 'react-native'
+import {useNavigation} from '@react-navigation/core'
+import {View} from 'native-base'
+import React, {useContext, useEffect, useState} from 'react'
 
 const ProductsScreen = () => {
   const navigation = useNavigation()
- 
+
   const [selectedItem, setSelectedItem] = useState()
-  
 
   return (
     <>
-      <View style={{backgroundColor:'red',width:200,height:300}}></View>
+      <View style={{backgroundColor: 'red', width: 200, height: 300}}></View>
     </>
   )
 }
