@@ -60,7 +60,9 @@ const General = StyleSheet.create({
     shadowOpacity: 0.3,
     shadowRadius: 1,
   },
- 
+  seventyWidthPercentage: {
+    width: '70%',
+  },
 
   largePadding: {
     paddingVertical: Dimensions.get('window').width / 27,

@@ -16,7 +16,8 @@ import {Dimensions, Platform, View} from 'react-native'
 import CreateAccount from 'DokaanPOS/assets/images/create-account-img.png'
 import DeviceInfo from 'react-native-device-info'
 import Container from 'DokaanPOS/src/component/Container'
-const ProductsScreen = () => {
+import Elements from 'DokaanPOS/assets/styles/Elements'
+const SignInSignUpScreen = () => {
   const navigation = useNavigation()
 
   const [selectedItem, setSelectedItem] = useState()
@@ -38,6 +39,7 @@ const ProductsScreen = () => {
           />
 
           <Button
+            onClick={() => console.log('hi')}
             txtColor={Colors.WHITE}
             backgroundColor={Colors.GREEN}
             // width={Dimensions.get('window').width / 5.5}
@@ -48,10 +50,7 @@ const ProductsScreen = () => {
                 ? Dimensions.get('window').width / 55
                 : Dimensions.get('window').width / 35
             }
-            style={{
-              paddingVertical: Dimensions.get('window').width / 240,
-              paddingHorizontal: Dimensions.get('window').width / 50,
-            }}
+            style={Elements.helpBtn}
           />
         </View>
         <View
@@ -59,8 +58,8 @@ const ProductsScreen = () => {
             General.mediumTopPadding,
             Layout.flexDirectionRow,
             Layout.spaceBetween,
-            Layout.largeCardPadding,Layout.alignItemsCenter
-          
+            Layout.largeCardPadding,
+            Layout.alignItemsCenter,
           ]}>
           <View style={Layout.widthHalf}>
             <View style={[Layout.spaceBetween]}>
@@ -83,8 +82,13 @@ Dokkan with no commitments'
                   color={Colors.LIGHT_GRAY}
                 />
               </View>
-              <View style={[General.smallTopPadding, {width: '70%'}]}>
+              <View
+                style={[
+                  General.smallTopPadding,
+                  General.seventyWidthPercentage,
+                ]}>
                 <Button
+                  onClick={() => console.log('hi')}
                   txtColor={Colors.WHITE}
                   backgroundColor={Colors.BLUE}
                   width='100%'
@@ -94,7 +98,11 @@ Dokkan with no commitments'
                   style={General.smallVerticalPadding}
                 />
               </View>
-              <View style={[General.smallTopPadding, {width: '70%'}]}>
+              <View
+                style={[
+                  General.smallTopPadding,
+                  General.seventyWidthPercentage,
+                ]}>
                 <Title
                   title='OR'
                   fontFamily={RubikMedium}
@@ -102,8 +110,13 @@ Dokkan with no commitments'
                   color={Colors.DARK_GRAY}
                 />
               </View>
-              <View style={[General.smallTopPadding, {width: '70%'}]}>
+              <View
+                style={[
+                  General.smallTopPadding,
+                  General.seventyWidthPercentage,
+                ]}>
                 <Button
+                  onClick={() => console.log('hi')}
                   txtColor={Colors.BLUE}
                   backgroundColor={Colors.WHITE}
                   width='100%'
@@ -116,7 +129,7 @@ Dokkan with no commitments'
               </View>
             </View>
           </View>
-          <View style={{width: '50%'}}>
+          <View style={Layout.widthHalf}>
             <DetailsImage source={CreateAccount} />
           </View>
         </View>
@@ -124,4 +137,4 @@ Dokkan with no commitments'
     </>
   )
 }
-export default ProductsScreen
+export default SignInSignUpScreen

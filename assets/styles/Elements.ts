@@ -7,7 +7,7 @@ const Elements = StyleSheet.create({
     fontFamily: InterRegularFont,
     fontSize: 20,
     textAlign: 'center',
-    lineHeight: Dimensions.get('window').width/30,
+    lineHeight: Dimensions.get('window').width / 30,
   },
 
   summary: {
@@ -26,6 +26,10 @@ const Elements = StyleSheet.create({
   },
   inputContainer: {
     width: '90%',
+  },
+  helpBtn: {
+    paddingVertical: Dimensions.get('window').width / 240,
+    paddingHorizontal: Dimensions.get('window').width / 50,
   },
   input: {
     color: Colors.BLACK,

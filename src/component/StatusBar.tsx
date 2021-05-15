@@ -1,5 +1,6 @@
 import styles from 'DokaanPOS/assets/styles';
-import Colors from 'DokaanPOS/assets/styles/Colors';
+import {Colors} from 'DokaanPOS/assets/styles/Colors';
+import General from 'DokaanPOS/assets/styles/General';
 import React from 'react';
 import {Platform, StatusBar as ReactStatusBar, View} from 'react-native';
 
@@ -10,13 +11,13 @@ import {Platform, StatusBar as ReactStatusBar, View} from 'react-native';
 const StatusBar = ({}) => (
   <View>
     {Platform.OS == 'android' ? (
-      <ReactStatusBar backgroundColor={Colors.LIGHT_GRAY} />
+      <ReactStatusBar backgroundColor={Colors.WHITE} />
     ) : (
       <View
         style={[
           styles.Layout.fullWidth,
           styles.Layout.statusBarHight,
-          styles.General.lightGrayBackground,
+         General.whiteBackgroundColor,
         ]}
       />
     )}

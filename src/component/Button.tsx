@@ -7,14 +7,14 @@ import Layout from 'DokaanPOS/assets/styles/Layout'
 interface IButton {
   onClick: () => void
   locked?: boolean
-  title: string
+  title?: string
   withBorder?: boolean
-  backgroundColor: Colors
-  txtColor: Colors
-  style?: StyleSheet
-  width: string | number | Dimensions
-  fontFamily: string
-  fontSize: number
+  backgroundColor?: Colors
+  txtColor?: Colors
+  style?: any
+  width?: string | number | Dimensions
+  fontFamily?: string
+  fontSize?: number
   borderColor?: Colors
 }
 export default function Button (props: IButton) {

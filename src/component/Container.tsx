@@ -16,10 +16,9 @@ export default function Container ({
   style = {},
   ...rest
 }: {
-  children?: JSX.Element
+  children?: any
   scrollAble?: boolean
   style?: object
-  onPress?: () => void
 }) {
   const Component = scrollAble ? ScrollView : (View as React.ElementType)
   return (
@@ -27,7 +26,14 @@ export default function Container ({
       style={[General.fullScreen, General.whiteBackgroundColor]}
       {...rest}>
       {scrollAble ? (
-        <View style={[Layout.justifyContentCenter,General.mediumVerticalPadding]}>{children}</View>
+        <View
+          style={[
+            Layout.justifyContentCenter,
+            General.mediumVerticalPadding,
+            style,
+          ]}>
+          {children}
+        </View>
       ) : (
         {
           children,
