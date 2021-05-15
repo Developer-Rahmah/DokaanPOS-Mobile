@@ -1,7 +1,8 @@
 import {StyleSheet, Dimensions} from 'react-native'
-import Colors from 'DokaanPOS/assets/styles/Colors'
+import {Colors} from 'DokaanPOS/assets/styles/Colors'
+//  const Layout = () => {
 
-export default StyleSheet.create({
+const Layout = StyleSheet.create({
   card: {
     width: '100%',
     paddingVertical: 20,
@@ -12,6 +13,12 @@ export default StyleSheet.create({
 
   flexCenter: {
     justifyContent: 'center',
+    alignItems: 'center',
+  },
+  justifyContentCenter: {
+    justifyContent: 'center',
+  },
+  alignItemsCenter: {
     alignItems: 'center',
   },
 
@@ -71,4 +78,13 @@ export default StyleSheet.create({
   displayFlex: {
     display: 'flex',
   },
+  spaceBetween: {
+    justifyContent: 'space-between',
+  },
+  largeCardPadding: {
+    paddingVertical: Dimensions.get('window').width / 15,
+    paddingHorizontal: Dimensions.get('window').width / 15,
+  },
 })
+
+export default Layout

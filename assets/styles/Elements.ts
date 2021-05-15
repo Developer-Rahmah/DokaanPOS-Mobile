@@ -1,17 +1,18 @@
 import {Dimensions, I18nManager, StyleSheet} from 'react-native'
-import Colors from 'DokaanPOS/assets/styles/Colors'
-import {tahomaFont} from 'DokaanPOS/assets/styles/Fonts'
+import {Colors} from 'DokaanPOS/assets/styles/Colors'
+import {InterRegularFont} from 'DokaanPOS/assets/styles/Fonts'
 
-export default StyleSheet.create({
+const Elements = StyleSheet.create({
   title: {
-    fontFamily: tahomaFont,
+    fontFamily: InterRegularFont,
     fontSize: 20,
     textAlign: 'center',
+    lineHeight: Dimensions.get('window').width/30,
   },
 
   summary: {
     color: Colors.LIGHT_GRAY,
-    fontFamily: tahomaFont,
+    fontFamily: InterRegularFont,
     fontSize: 15,
     textAlign: 'left',
   },
@@ -28,7 +29,7 @@ export default StyleSheet.create({
   },
   input: {
     color: Colors.BLACK,
-    fontFamily: tahomaFont,
+    fontFamily: InterRegularFont,
     textAlign: I18nManager.isRTL ? 'right' : 'left',
   },
 
@@ -82,3 +83,4 @@ export default StyleSheet.create({
     borderRadius: 20,
   },
 })
+export default Elements

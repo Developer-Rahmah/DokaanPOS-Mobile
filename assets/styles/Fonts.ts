@@ -1,6 +1,7 @@
 import {Platform} from 'react-native'
 
-export const tahomaFont = Platform.OS == 'ios' ? 'Tahoma' : 'Tahoma'
-
-export const tahomaFontBold =
-  Platform.OS == 'ios' ? 'Tahoma-Bold' : 'TahomaBold'
+export const InterRegularFont =
+  Platform.OS == 'ios' ? 'Inter-Light' : 'Inter-Light'
+export const InterMediumFont = 'Inter-Medium'
+export const InterBoldFont = Platform.OS == 'ios' ? 'Inter-Bold' : 'Inter-Bold'
+export const RubikMedium = 'Rubik-Medium'

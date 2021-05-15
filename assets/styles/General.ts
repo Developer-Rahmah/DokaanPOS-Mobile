@@ -1,7 +1,7 @@
 import {StyleSheet, Dimensions} from 'react-native'
-import Colors from './Colors'
+import {Colors} from './Colors'
 
-export default StyleSheet.create({
+const General = StyleSheet.create({
   fullScreen: {
     width: '100%',
     height: '100%',
@@ -18,8 +18,8 @@ export default StyleSheet.create({
   transparentBackground: {
     backgroundColor: 'transparent',
   },
-  lightYellowBackground: {
-    backgroundColor: Colors.LIGHT_YELLOW,
+  whiteBackgroundColor: {
+    backgroundColor: Colors.WHITE,
   },
 
   horizontalPadding: {
@@ -29,19 +29,30 @@ export default StyleSheet.create({
   verticalPadding: {
     paddingVertical: Dimensions.get('window').height / 17,
   },
+  smallTopPadding: {
+    paddingTop: Dimensions.get('window').height / 50,
+  },
+  mediumTopPadding: {
+    paddingTop: Dimensions.get('window').height / 35,
+  },
   mediumVerticalPadding: {
     paddingVertical: Dimensions.get('window').height / 35,
   },
   smallVerticalPadding: {
-    paddingVertical: Dimensions.get('window').height / 80,
+    paddingVertical: Dimensions.get('window').height / 200,
   },
 
   paddingBottom: {
     paddingBottom: Dimensions.get('window').height / 7.5,
   },
+
   paddingTop: {
     paddingTop: Dimensions.get('window').height / 15,
   },
+  border: {
+    borderWidth: 1,
+  },
+
   shadow: {
     elevation: 1.5,
     shadowColor: Colors.BLACK,
@@ -49,15 +60,11 @@ export default StyleSheet.create({
     shadowOpacity: 0.3,
     shadowRadius: 1,
   },
-  justifyContentCenter: {
-    justifyContent: 'center',
-  },
-  alignItemsCenter: {
-    alignItems: 'center',
-  },
+ 
 
   largePadding: {
     paddingVertical: Dimensions.get('window').width / 27,
     paddingHorizontal: Dimensions.get('window').width / 37,
   },
 })
+export default General

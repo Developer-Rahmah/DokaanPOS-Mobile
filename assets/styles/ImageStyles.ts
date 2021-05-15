@@ -1,5 +1,5 @@
 import {StyleSheet, Dimensions} from 'react-native'
-export default StyleSheet.create({
+const ImageStyles = StyleSheet.create({
   teaserImage: {
     width: '100%',
     height: Dimensions.get('window').width / 2,
@@ -13,7 +13,6 @@ export default StyleSheet.create({
   posterImage: {
     width: '100%',
     height: Dimensions.get('window').height / 2.5,
-    resizeMode: 'cover',
   },
 
   iconImage: {
@@ -25,3 +24,4 @@ export default StyleSheet.create({
     height: Dimensions.get('window').width / 15,
   },
 })
+export default ImageStyles
