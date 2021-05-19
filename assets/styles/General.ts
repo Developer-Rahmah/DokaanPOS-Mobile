@@ -10,6 +10,9 @@ const General = StyleSheet.create({
   lightGrayBackground: {
     backgroundColor: Colors.BEIGE,
   },
+veryLightGrayBackground: {
+    backgroundColor: Colors.VERY_LIGHT_GRAY,
+  },
 
   greenBackground: {
     backgroundColor: Colors.GREEN,
@@ -48,6 +51,10 @@ const General = StyleSheet.create({
 
   paddingTop: {
     paddingTop: Dimensions.get('window').height / 15,
+  },
+
+  smallTopMargin: {
+    marginTop: Dimensions.get('window').height / 50,
   },
   border: {
     borderWidth: 1,

@@ -85,6 +85,9 @@ const Layout = StyleSheet.create({
     paddingVertical: Dimensions.get('window').width / 15,
     paddingHorizontal: Dimensions.get('window').width / 15,
   },
+   largeHorizontalPadding: {
+    paddingHorizontal: Dimensions.get('window').width / 15,
+  },
 })
 
 export default Layout

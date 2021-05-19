@@ -1,5 +1,4 @@
 import {useNavigation} from '@react-navigation/core'
-import styles from 'DokaanPOS/assets/styles'
 import {Colors} from 'DokaanPOS/assets/styles/Colors'
 import {
   InterBoldFont,
@@ -11,8 +10,8 @@ import Layout from 'DokaanPOS/assets/styles/Layout'
 import Button from 'DokaanPOS/src/component/Button'
 import DetailsImage from 'DokaanPOS/src/component/DetailsImage'
 import Title from 'DokaanPOS/src/component/Title'
-import React, {useContext, useEffect, useState} from 'react'
-import {Dimensions, Platform, View} from 'react-native'
+import React, {useState} from 'react'
+import {Dimensions, View} from 'react-native'
 import CreateAccount from 'DokaanPOS/assets/images/create-account-img.png'
 import DeviceInfo from 'react-native-device-info'
 import Container from 'DokaanPOS/src/component/Container'
@@ -116,7 +115,7 @@ Dokkan with no commitments'
                   General.seventyWidthPercentage,
                 ]}>
                 <Button
-                  onClick={() => console.log('hi')}
+                  onClick={() => navigation.navigate('SignInScreen')}
                   txtColor={Colors.BLUE}
                   backgroundColor={Colors.WHITE}
                   width='100%'

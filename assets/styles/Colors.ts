@@ -9,5 +9,7 @@ export enum Colors {
   LIGHT_GREEN = '#d5ecc2',
   WHITE = '#FFFFFF',
   BLUE = '#394cd1',
-  DARK_GRAY = '5a607f',
+  DARK_GRAY = '#5a607f',
+  RED='#FF0000',
+  VERY_LIGHT_GRAY='#f5f6fa'
 }
