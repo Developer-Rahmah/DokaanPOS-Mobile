@@ -163,6 +163,7 @@ const SignUpScreen = () => {
                   )}
                   name='password'
                 />
+                
                 <Title
                   title='Password must be at least 8 characters and contain at least one
 capital letter, one lower case letter, and one number'
@@ -184,8 +185,13 @@ numberOfLines={0} textAlign='left'
                     title='Create Account'
                     fontFamily={InterMediumFont}
                     fontSize={Dimensions.get('window').width / 50}
-                    style={General.smallVerticalPadding}
+                    style={[General.smallVerticalPadding,General.smallTopMargin]}
                   />
+                  <View style={[Layout.flexDirectionRow,General.mediumVerticalPadding]}>
+  <Title title='By creating account, you agree to ' color={Colors.LIGHT_GRAY} />
+  <Title title='our Terms of Service' color={Colors.BLUE} />
+</View>
+
                 </View>
               </View>
             </View>
