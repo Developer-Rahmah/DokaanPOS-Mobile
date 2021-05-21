@@ -37,6 +37,12 @@ const Layout = StyleSheet.create({
   cardPadding: {
     padding: 20,
   },
+  paddingEnd: {
+    paddingEnd: 10,
+  },
+  paddingStart: {
+    paddingStart: 10,
+  },
   margin: {
     margin: 20,
   },

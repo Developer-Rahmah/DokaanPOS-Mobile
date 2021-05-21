@@ -95,7 +95,7 @@ const Elements = StyleSheet.create({
     flexDirection: 'row',
   },
   passwordInput: {width: '90%', marginEnd: 10},
-  smallIcon: {
+  icon: {
     width: 35,
     height: 35,
     resizeMode: 'contain',

@@ -6,11 +6,19 @@ import Elements from 'DokaanPOS/assets/styles/Elements'
 export default function IconImage ({
   source,
   color,
+  small,
 }: {
   source: ImageSourcePropType
   color?: Colors
+  small?: boolean
 }) {
   return (
-    <Image source={source} style={[Elements.smallIcon, {tintColor: color}]} />
+    <Image
+      source={source}
+      style={[
+        small ? {width: 20, height: 20} : Elements.icon,
+        {tintColor: color},
+      ]}
+    />
   )
 }

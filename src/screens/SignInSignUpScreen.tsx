@@ -87,7 +87,7 @@ Dokkan with no commitments'
                   General.seventyWidthPercentage,
                 ]}>
                 <Button
-                  onClick={() => console.log('hi')}
+                  onClick={() => navigation.navigate('SignUpScreen')}
                   txtColor={Colors.WHITE}
                   backgroundColor={Colors.BLUE}
                   width='100%'
