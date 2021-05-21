@@ -15,6 +15,11 @@ const Layout = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+
+  flexStart: {
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start',
+  },
   justifyContentCenter: {
     justifyContent: 'center',
   },
@@ -85,7 +90,7 @@ const Layout = StyleSheet.create({
     paddingVertical: Dimensions.get('window').width / 15,
     paddingHorizontal: Dimensions.get('window').width / 15,
   },
-   largeHorizontalPadding: {
+  largeHorizontalPadding: {
     paddingHorizontal: Dimensions.get('window').width / 15,
   },
 })

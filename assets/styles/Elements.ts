@@ -86,5 +86,19 @@ const Elements = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 20,
   },
+  fieldContainer: {
+    borderWidth: 1,
+    borderRadius: 5,
+    padding: 20,
+    width: '100%',
+    alignItems: 'center',
+    flexDirection: 'row',
+  },
+  passwordInput: {width: '90%', marginEnd: 10},
+  smallIcon: {
+    width: 35,
+    height: 35,
+    resizeMode: 'contain',
+  },
 })
 export default Elements

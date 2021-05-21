@@ -10,7 +10,7 @@ const General = StyleSheet.create({
   lightGrayBackground: {
     backgroundColor: Colors.BEIGE,
   },
-veryLightGrayBackground: {
+  veryLightGrayBackground: {
     backgroundColor: Colors.VERY_LIGHT_GRAY,
   },
 
@@ -48,7 +48,12 @@ veryLightGrayBackground: {
   paddingBottom: {
     paddingBottom: Dimensions.get('window').height / 7.5,
   },
-
+  smallPaddingBottom: {
+    paddingBottom: Dimensions.get('window').height / 200,
+  },
+  mediumPaddingBottom: {
+    paddingBottom: Dimensions.get('window').height / 30,
+  },
   paddingTop: {
     paddingTop: Dimensions.get('window').height / 15,
   },

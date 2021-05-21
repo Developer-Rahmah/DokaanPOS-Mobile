@@ -10,16 +10,22 @@ import Layout from 'DokaanPOS/assets/styles/Layout'
 import Button from 'DokaanPOS/src/component/Button'
 import Title from 'DokaanPOS/src/component/Title'
 import React from 'react'
-import {Alert, Dimensions, View} from 'react-native'
+import {Dimensions, View} from 'react-native'
 import DeviceInfo from 'react-native-device-info'
 import Container from 'DokaanPOS/src/component/Container'
 import Elements from 'DokaanPOS/assets/styles/Elements'
 import {Controller, useForm} from 'react-hook-form'
-import Input from '../component/Input'
+import Input from 'DokaanPOS/src/component/Input'
 import {Toast} from 'native-base'
+import {useSelector} from 'react-redux'
 const SignInScreen = () => {
   const navigation = useNavigation()
+  interface RootState {
+    password: string
+  }
+  const selectPassword = (state: RootState) => state.password
 
+  const password = useSelector(selectPassword)
   const {
     control,
     handleSubmit,
@@ -29,7 +35,6 @@ const SignInScreen = () => {
   })
 
   const onSubmit = (data: object) => {
-    console.log('dadadadadtaa', data)
     Toast.show({
       text: 'Your password was successfully updated.',
       textStyle: {
@@ -45,7 +50,7 @@ const SignInScreen = () => {
       buttonTextStyle: {color: Colors.WHITE, fontSize: 20},
     })
   }
-  console.log('errrors', errors)
+
   return (
     <>
       <Container scrollAble style={General.veryLightGrayBackground}>
@@ -83,6 +88,9 @@ const SignInScreen = () => {
               General.whiteBackgroundColor,
               General.seventyWidthPercentage,
               General.mediumTopPadding,
+              General.shadow,
+              Layout.radius,
+              General.mediumPaddingBottom,
             ]}>
             <View style={[Layout.flexCenter]}>
               <View
@@ -132,13 +140,14 @@ const SignInScreen = () => {
                   control={control}
                   render={({field: {onChange, value}}) => (
                     <Input
+                      isPassword
                       label='Password'
                       onChangeText={(value: string) => onChange(value)}
                       value={value}
                     />
                   )}
                   name='password'
-                  rules={{required: true}}
+                  // rules={{required: true}}
                 />
                 <View style={Layout.alignItemsFlexEnd}>
                   <Title title='Forgot Password?' color={Colors.BLUE} />
@@ -146,7 +155,11 @@ const SignInScreen = () => {
                 <View style={[General.smallTopPadding]}>
                   <Button
                     locked={
-                      !isValid || errors.name || errors.email || errors.password
+                      !isValid ||
+                      errors.name ||
+                      errors.email ||
+                      password == null ||
+                      password == ''
                     }
                     onClick={handleSubmit(onSubmit)}
                     txtColor={Colors.WHITE}
