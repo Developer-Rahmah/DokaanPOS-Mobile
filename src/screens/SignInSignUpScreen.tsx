@@ -38,7 +38,7 @@ const SignInSignUpScreen = () => {
           />
 
           <Button
-            onClick={() => console.log('hi')}
+            onClick={() => navigation.navigate('StoreSignUpScreen')}
             txtColor={Colors.WHITE}
             backgroundColor={Colors.GREEN}
             // width={Dimensions.get('window').width / 5.5}
