@@ -138,10 +138,24 @@ const SignUpScreen = () => {
                     />
                   </View>
                 </View>
+
                 <Controller
                   control={control}
                   render={({field: {onChange, value}}) => (
                     <Input
+                      isPhone
+                      label='Phone Number'
+                      onChangeText={(value: string) => onChange(value)}
+                      value={value}
+                    />
+                  )}
+                  name='phoneNumber'
+                />
+                <Controller
+                  control={control}
+                  render={({field: {onChange, value}}) => (
+                    <Input
+                      keyboardType='email-address'
                       label='Email Address'
                       onChangeText={(value: string) => onChange(value)}
                       value={value}
@@ -150,7 +164,6 @@ const SignUpScreen = () => {
                   name='email'
                   rules={{required: true}}
                 />
-
                 <Controller
                   control={control}
                   render={({field: {onChange, value}}) => (
@@ -163,11 +176,11 @@ const SignUpScreen = () => {
                   )}
                   name='password'
                 />
-                
                 <Title
                   title='Password must be at least 8 characters and contain at least one
 capital letter, one lower case letter, and one number'
-numberOfLines={0} textAlign='left'
+                  numberOfLines={0}
+                  textAlign='left'
                 />
                 <View style={[General.smallTopPadding]}>
                   <Button
@@ -185,13 +198,22 @@ numberOfLines={0} textAlign='left'
                     title='Create Account'
                     fontFamily={InterMediumFont}
                     fontSize={Dimensions.get('window').width / 50}
-                    style={[General.smallVerticalPadding,General.smallTopMargin]}
+                    style={[
+                      General.smallVerticalPadding,
+                      General.smallTopMargin,
+                    ]}
                   />
-                  <View style={[Layout.flexDirectionRow,General.mediumVerticalPadding]}>
-  <Title title='By creating account, you agree to ' color={Colors.LIGHT_GRAY} />
-  <Title title='our Terms of Service' color={Colors.BLUE} />
-</View>
-
+                  <View
+                    style={[
+                      Layout.flexDirectionRow,
+                      General.mediumVerticalPadding,
+                    ]}>
+                    <Title
+                      title='By creating account, you agree to '
+                      color={Colors.LIGHT_GRAY}
+                    />
+                    <Title title='our Terms of Service' color={Colors.BLUE} />
+                  </View>
                 </View>
               </View>
             </View>

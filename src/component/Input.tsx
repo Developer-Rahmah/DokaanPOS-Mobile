@@ -7,6 +7,7 @@ import {setPasswordAction} from 'DokaanPOS/services/redux/actions'
 import IconImage from './IconImage'
 import Eye from 'DokaanPOS/assets/icons/eye.png'
 import EyeWithLine from 'DokaanPOS/assets/icons/eye-with-line.png'
+import USAFlag from 'DokaanPOS/assets/icons/united-states.png'
 import {TouchableOpacity} from 'react-native-gesture-handler'
 import Layout from 'DokaanPOS/assets/styles/Layout'
 import General from 'DokaanPOS/assets/styles/General'
@@ -19,6 +20,7 @@ export default function Input ({
   isPassword,
   background,
   value,
+  isPhone = false,
 }: {
   onChangeText?: any
   value: string
@@ -26,6 +28,7 @@ export default function Input ({
   keyboardType?: KeyboardType
   isPassword?: boolean
   background?: Colors
+  isPhone?: boolean
 }) {
   const dispatch = useDispatch()
   const [password, setPassword] = useState<string | undefined>(undefined)
@@ -64,6 +67,38 @@ export default function Input ({
               onPress={() => setSecureTextEntry(!secureTextEntry)}>
               <IconImage source={secureTextEntry ? Eye : EyeWithLine} />
             </TouchableOpacity>
+          </View>
+        ) : isPhone ? (
+          <View
+            style={[
+              Elements.fieldContainer,
+              {
+                borderColor:
+                  password || password == null ? Colors.LIGHT_GRAY : Colors.RED,
+                padding: 0,
+              },
+            ]}>
+            <View
+              style={{
+                borderEndColor: '#d9e1ec',
+                borderEndWidth: 2,
+                height: '100%',
+                flexDirection: 'row',
+                paddingHorizontal: 20,
+                alignItems: 'center',
+              }}>
+              <IconImage source={USAFlag} />
+              <Title title='+1' />
+            </View>
+            <TextInput
+              maxLength={10}
+              style={[Elements.passwordInput, {margin: 10}]}
+              autoCorrect={false}
+              placeholder='xxx xxx xxxx'
+              value={password}
+              keyboardType='number-pad'
+              onChangeText={val => onChangePassword(val)}
+            />
           </View>
         ) : (
           <TextInput

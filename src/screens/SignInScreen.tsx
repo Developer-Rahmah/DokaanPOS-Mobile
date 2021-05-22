@@ -128,6 +128,7 @@ const SignInScreen = () => {
                   render={({field: {onChange, value}}) => (
                     <Input
                       label='Email Address'
+                      keyboardType='email-address'
                       onChangeText={(value: string) => onChange(value)}
                       value={value}
                     />
