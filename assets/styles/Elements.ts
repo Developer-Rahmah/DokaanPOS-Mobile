@@ -100,5 +100,13 @@ const Elements = StyleSheet.create({
     height: 35,
     resizeMode: 'contain',
   },
+  flagContainer: {
+    borderEndColor: '#d9e1ec',
+    borderEndWidth: 2,
+    height: '100%',
+    flexDirection: 'row',
+    paddingHorizontal: 20,
+    alignItems: 'center',
+  },
 })
 export default Elements

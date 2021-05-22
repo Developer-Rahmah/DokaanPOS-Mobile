@@ -2,8 +2,11 @@ import React, {useState} from 'react'
 import {KeyboardType, TextInput, View} from 'react-native'
 import Title from './Title'
 import {Colors} from 'DokaanPOS/assets/styles/Colors'
-import {useDispatch, useSelector} from 'react-redux'
-import {setPasswordAction} from 'DokaanPOS/services/redux/actions'
+import {useDispatch} from 'react-redux'
+import {
+  setPasswordAction,
+  setPhoneNumAction,
+} from 'DokaanPOS/services/redux/actions'
 import IconImage from './IconImage'
 import Eye from 'DokaanPOS/assets/icons/eye.png'
 import EyeWithLine from 'DokaanPOS/assets/icons/eye-with-line.png'
@@ -32,87 +35,109 @@ export default function Input ({
 }) {
   const dispatch = useDispatch()
   const [password, setPassword] = useState<string | undefined>(undefined)
+  const [phoneNum, setPhoneNum] = useState<string | undefined>(undefined)
   const [secureTextEntry, setSecureTextEntry] = useState<boolean>(true)
   const onChangePassword = (value: string) => {
     setPassword(value)
     dispatch(setPasswordAction(value))
   }
+  const onChangePhoneNum = (value: string) => {
+    setPhoneNum(value)
+    dispatch(setPhoneNumAction(value))
+  }
 
   return (
     <>
       <View style={[Layout.flexStart, General.smallTopPadding]}>
-        <Title
-          color={value || value == null ? Colors.LIGHT_GRAY : Colors.RED}
-          title={label + '*'}
-        />
         {isPassword ? (
-          <View
-            style={[
-              Elements.fieldContainer,
-              {
-                borderColor:
-                  password || password == null ? Colors.LIGHT_GRAY : Colors.RED,
-                padding: 10,
-              },
-            ]}>
-            <TextInput
-              style={[Elements.passwordInput]}
-              autoCorrect={false}
-              secureTextEntry={secureTextEntry}
-              placeholder='Password'
-              value={password}
-              onChangeText={val => onChangePassword(val)}
+          <>
+            <Title
+              color={
+                password || password == null ? Colors.LIGHT_GRAY : Colors.RED
+              }
+              title={label + '*'}
             />
-            <TouchableOpacity
-              onPress={() => setSecureTextEntry(!secureTextEntry)}>
-              <IconImage source={secureTextEntry ? Eye : EyeWithLine} />
-            </TouchableOpacity>
-          </View>
-        ) : isPhone ? (
-          <View
-            style={[
-              Elements.fieldContainer,
-              {
-                borderColor:
-                  password || password == null ? Colors.LIGHT_GRAY : Colors.RED,
-                padding: 0,
-              },
-            ]}>
+
             <View
-              style={{
-                borderEndColor: '#d9e1ec',
-                borderEndWidth: 2,
-                height: '100%',
-                flexDirection: 'row',
-                paddingHorizontal: 20,
-                alignItems: 'center',
-              }}>
-              <IconImage source={USAFlag} />
-              <Title title='+1' />
+              style={[
+                Elements.fieldContainer,
+                {
+                  borderColor:
+                    password || password == null
+                      ? Colors.LIGHT_GRAY
+                      : Colors.RED,
+                  padding: 10,
+                },
+              ]}>
+              <TextInput
+                style={[Elements.passwordInput]}
+                autoCorrect={false}
+                secureTextEntry={secureTextEntry}
+                placeholder='Password'
+                value={password}
+                onChangeText={val => onChangePassword(val)}
+              />
+              <TouchableOpacity
+                onPress={() => setSecureTextEntry(!secureTextEntry)}>
+                <IconImage source={secureTextEntry ? Eye : EyeWithLine} />
+              </TouchableOpacity>
             </View>
-            <TextInput
-              maxLength={10}
-              style={[Elements.passwordInput, {margin: 10}]}
-              autoCorrect={false}
-              placeholder='xxx xxx xxxx'
-              value={password}
-              keyboardType='number-pad'
-              onChangeText={val => onChangePassword(val)}
+          </>
+        ) : isPhone ? (
+          <>
+            <Title
+              color={
+                phoneNum || phoneNum == null ? Colors.LIGHT_GRAY : Colors.RED
+              }
+              title={label + '*'}
             />
-          </View>
+
+            <View
+              style={[
+                Elements.fieldContainer,
+                {
+                  borderColor:
+                    phoneNum || phoneNum == null
+                      ? Colors.LIGHT_GRAY
+                      : Colors.RED,
+                  padding: 0,
+                },
+              ]}>
+              <View style={Elements.flagContainer}>
+                <IconImage source={USAFlag} />
+                <Title title='+1' />
+              </View>
+              <TextInput
+                maxLength={10}
+                style={[Elements.passwordInput, {margin: 10}]}
+                autoCorrect={false}
+                placeholder='xxx xxx xxxx'
+                keyboardType='number-pad'
+                value={phoneNum}
+                onChangeText={val => onChangePhoneNum(val)}
+              />
+            </View>
+          </>
         ) : (
-          <TextInput
-            placeholder={label}
-            style={[
-              Elements.fieldContainer,
-              {
-                borderColor:
-                  value || value == null ? Colors.LIGHT_GRAY : Colors.RED,
-              },
-            ]}
-            onChangeText={onChangeText}
-            keyboardType={keyboardType}
-          />
+          <>
+            <Title
+              color={value || value == null ? Colors.LIGHT_GRAY : Colors.RED}
+              title={label + '*'}
+            />
+
+            <TextInput
+              placeholder={label}
+              style={[
+                Elements.fieldContainer,
+                {
+                  borderColor:
+                    value || value == null ? Colors.LIGHT_GRAY : Colors.RED,
+                },
+              ]}
+              onChangeText={onChangeText}
+              keyboardType={keyboardType}
+            />
+          </>
         )}
       </View>
     </>

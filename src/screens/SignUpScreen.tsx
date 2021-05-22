@@ -24,10 +24,14 @@ const SignUpScreen = () => {
   const navigation = useNavigation()
   interface RootState {
     password: string
+    phoneNum: string
   }
   const selectPassword = (state: RootState) => state.password
+  const selectPhoneNum = (state: RootState) => state.phoneNum
 
   const password = useSelector(selectPassword)
+  const phoneNum = useSelector(selectPhoneNum)
+
   const {
     control,
     handleSubmit,
@@ -189,7 +193,9 @@ capital letter, one lower case letter, and one number'
                       errors.name ||
                       errors.email ||
                       password == null ||
-                      password == ''
+                      password == '' ||
+                      phoneNum == null ||
+                      phoneNum == ''
                     }
                     onClick={handleSubmit(onSubmit)}
                     txtColor={Colors.WHITE}
@@ -207,12 +213,23 @@ capital letter, one lower case letter, and one number'
                     style={[
                       Layout.flexDirectionRow,
                       General.mediumVerticalPadding,
+                      Layout.fullWidth,
+                      Layout.flexCenter,
                     ]}>
                     <Title
+                      textAlign='center'
+                      fontSize={17}
                       title='By creating account, you agree to '
+                      numberOfLines={0}
                       color={Colors.LIGHT_GRAY}
                     />
-                    <Title title='our Terms of Service' color={Colors.BLUE} />
+                    <Title
+                      textAlign='center'
+                      fontSize={17}
+                      title='our Terms of Service'
+                      color={Colors.BLUE}
+                      numberOfLines={0}
+                    />
                   </View>
                 </View>
               </View>
