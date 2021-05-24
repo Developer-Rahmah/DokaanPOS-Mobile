@@ -1,26 +1,20 @@
 import {useNavigation} from '@react-navigation/core'
 import {Colors} from 'DokaanPOS/assets/styles/Colors'
-import {
-  InterBoldFont,
-  InterMediumFont,
-  RubikMedium,
-} from 'DokaanPOS/assets/styles/Fonts'
+import {InterBoldFont, InterMediumFont} from 'DokaanPOS/assets/styles/Fonts'
 import General from 'DokaanPOS/assets/styles/General'
 import Layout from 'DokaanPOS/assets/styles/Layout'
 import Button from 'DokaanPOS/src/component/Button'
 import Title from 'DokaanPOS/src/component/Title'
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import {Dimensions, View} from 'react-native'
-import DeviceInfo from 'react-native-device-info'
 import Container from 'DokaanPOS/src/component/Container'
-import Elements from 'DokaanPOS/assets/styles/Elements'
 import {Controller, useForm} from 'react-hook-form'
 import Input from 'DokaanPOS/src/component/Input'
 import {Toast} from 'native-base'
 import {useSelector} from 'react-redux'
 import IconImage from '../component/IconImage'
 import Close from 'DokaanPOS/assets/icons/close.png'
-import {Picker} from 'react-native'
+import PickerItem from '../component/PickerItem'
 
 const StoreSignUpScreen = () => {
   const navigation = useNavigation()
@@ -30,8 +24,9 @@ const StoreSignUpScreen = () => {
   }
   const selectPassword = (state: RootState) => state.password
   const selectPhoneNum = (state: RootState) => state.phoneNum
-  const [productTypeSelected, setProductTypeSelected] = useState<number>(0)
-  const productTypes = ['test1','test2','test3']
+  const cites = ['city1', 'city2', 'city3']
+  const states = ['state1', 'state2', 'state3']
+
   const password = useSelector(selectPassword)
   const phoneNum = useSelector(selectPhoneNum)
 
@@ -59,10 +54,6 @@ const StoreSignUpScreen = () => {
       buttonTextStyle: {color: Colors.WHITE, fontSize: 20},
     })
   }
-const onValueChange = value => {
-  setProductTypeSelected(value)
-}
-useEffect(() => {}, [productTypeSelected])
 
   return (
     <>
@@ -133,75 +124,17 @@ useEffect(() => {}, [productTypeSelected])
                 />
                 <View style={[Layout.flexDirectionRow, Layout.spaceBetween]}>
                   <View style={[Layout.widthHalf, Layout.paddingEnd]}>
-                    {/* <Controller
-                      control={control}
-                      render={({field: {onChange, value}}) => (
-                        <Input
-                          label='First Name'
-                          onChangeText={(value: string) => onChange(value)}
-                          value={value}
-                        />
-                      )}
-                      name='firstName'
-                      rules={{required: true}}
-                    /> */}
-
-                    <Controller
-                      control={control}
-                      render={({field: {onChange}}) => (
-                        <View
-                          style={[
-                            //  Layout.inputContainer,
-                            General.lightGrayBackground,
-                            General.mediumVerticalPadding,
-                          ]}>
-                          <Picker
-                            mode='dialog'
-                            style={
-                              [
-                                //  Layout.fieldContainerStyle,
-                                //  Layout.pickerContainer,
-                              ]
-                            }
-                            selectedValue={productTypeSelected}
-                            onValueChange={value => {
-                              onChange(value), onValueChange(value)
-                            }}>
-                            {productTypes.map((item, index) => {
-                              return (
-                                <Picker.Item
-                                  label={item}
-                                  value={index}
-                                  key={index}
-                                />
-                              )
-                            })}
-                          </Picker>
-                        </View>
-                      )}
-                      name='type'
-                      defaultValue=''
-                    />
+                    <PickerItem label='City' itemsList={cites} />
                   </View>
                   <View style={[Layout.widthHalf, Layout.paddingStart]}>
-                    <Controller
-                      control={control}
-                      render={({field: {onChange, value}}) => (
-                        <Input
-                          label='Last Name'
-                          onChangeText={(value: string) => onChange(value)}
-                          value={value}
-                        />
-                      )}
-                      name='lastName'
-                      rules={{required: true}}
-                    />
+                    <PickerItem label='State' itemsList={states} />
                   </View>
                 </View>
                 <Controller
                   control={control}
                   render={({field: {onChange, value}}) => (
                     <Input
+                      placeHolder='Enter Zip Code'
                       label='Zip Code'
                       onChangeText={(value: string) => onChange(value)}
                       value={value}
@@ -215,12 +148,13 @@ useEffect(() => {}, [productTypeSelected])
                   control={control}
                   render={({field: {onChange, value}}) => (
                     <Input
+                      placeHolder='Street and number, P.O box'
                       label='Store Address Line 1'
                       onChangeText={(value: string) => onChange(value)}
                       value={value}
                     />
                   )}
-                  name='storeAddressLine'
+                  name='storeAddressLine1'
                   rules={{required: true}}
                 />
 
@@ -228,25 +162,18 @@ useEffect(() => {}, [productTypeSelected])
                   control={control}
                   render={({field: {onChange, value}}) => (
                     <Input
+                      placeHolder='Suite, unit, building, floor, etc'
                       label='Store Address Line 2'
                       onChangeText={(value: string) => onChange(value)}
                       value={value}
                     />
                   )}
-                  name='email'
+                  name='storeAddressLine2'
                   rules={{required: true}}
                 />
                 <View style={[General.smallTopPadding]}>
                   <Button
-                    locked={
-                      !isValid ||
-                      errors.name ||
-                      errors.email ||
-                      password == null ||
-                      password == '' ||
-                      phoneNum == null ||
-                      phoneNum == ''
-                    }
+                    locked={!isValid || errors.storeName || errors.phoneNumber}
                     onClick={handleSubmit(onSubmit)}
                     txtColor={Colors.WHITE}
                     backgroundColor={Colors.BLUE}

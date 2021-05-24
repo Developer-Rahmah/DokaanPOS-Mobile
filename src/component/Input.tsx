@@ -24,6 +24,7 @@ export default function Input ({
   background,
   value,
   isPhone = false,
+  placeHolder = label,
 }: {
   onChangeText?: any
   value: string
@@ -32,6 +33,7 @@ export default function Input ({
   isPassword?: boolean
   background?: Colors
   isPhone?: boolean
+  placeHolder: string
 }) {
   const dispatch = useDispatch()
   const [password, setPassword] = useState<string | undefined>(undefined)
@@ -126,7 +128,7 @@ export default function Input ({
             />
 
             <TextInput
-              placeholder={label}
+              placeholder={placeHolder}
               style={[
                 Elements.fieldContainer,
                 {
