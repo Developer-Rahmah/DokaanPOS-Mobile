@@ -11,3 +11,11 @@ export const setPhoneNumAction = (phoneNum: string) => ({
   type: 'SET_PHONE_NUM',
   payload: phoneNum,
 })
+export const setCityAction = (city: string) => ({
+  type: 'SET_CITY',
+  payload: city,
+})
+export const setStateAction = (state: string) => ({
+  type: 'SET_STATE',
+  payload: state,
+})

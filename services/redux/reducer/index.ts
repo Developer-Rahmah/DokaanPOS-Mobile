@@ -2,6 +2,8 @@ const DEFAULT_STATE = {
   showGifImage: 'yes' as string,
   password: null,
   phoneNum: null,
+  city: null,
+  state: null,
 }
 
 const applicationReducer = (state = DEFAULT_STATE, action: any) => {
@@ -22,6 +24,16 @@ const applicationReducer = (state = DEFAULT_STATE, action: any) => {
         phoneNum: action.payload,
       }
 
+    case 'SET_CITY':
+      return {
+        ...state,
+        city: action.payload,
+      }
+    case 'SET_STATE':
+      return {
+        ...state,
+        state: action.payload,
+      }
     default:
       return state
   }

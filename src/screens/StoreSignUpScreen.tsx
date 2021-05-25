@@ -19,16 +19,18 @@ import PickerItem from '../component/PickerItem'
 const StoreSignUpScreen = () => {
   const navigation = useNavigation()
   interface RootState {
-    password: string
-    phoneNum: string
+    city: string | null
+    state: string | null
   }
-  const selectPassword = (state: RootState) => state.password
-  const selectPhoneNum = (state: RootState) => state.phoneNum
+
+  const selectCity = (state: RootState) => state.city
+  const selectState = (state: RootState) => state.state
+
   const cites = ['city1', 'city2', 'city3']
   const states = ['state1', 'state2', 'state3']
 
-  const password = useSelector(selectPassword)
-  const phoneNum = useSelector(selectPhoneNum)
+  const city = useSelector(selectCity)
+  const state = useSelector(selectState)
 
   const {
     control,
@@ -173,7 +175,13 @@ const StoreSignUpScreen = () => {
                 />
                 <View style={[General.smallTopPadding]}>
                   <Button
-                    locked={!isValid || errors.storeName || errors.phoneNumber}
+                    locked={
+                      !isValid ||
+                      errors.storeName ||
+                      errors.phoneNumber ||
+                      city == null ||
+                      state == null
+                    }
                     onClick={handleSubmit(onSubmit)}
                     txtColor={Colors.WHITE}
                     backgroundColor={Colors.BLUE}

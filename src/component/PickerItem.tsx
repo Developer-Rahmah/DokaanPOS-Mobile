@@ -7,6 +7,7 @@ import Layout from 'DokaanPOS/assets/styles/Layout'
 import General from 'DokaanPOS/assets/styles/General'
 import Elements from 'DokaanPOS/assets/styles/Elements'
 import {Picker} from 'native-base'
+import {setCityAction, setStateAction} from 'DokaanPOS/services/redux/actions'
 
 export default function PickerItem ({
   label,
@@ -21,8 +22,13 @@ export default function PickerItem ({
 
   const dispatch = useDispatch()
 
-  const onValueChange = value => {
+  const onValueChange = (value: string) => {
     setItemSelected(value)
+    if (label == 'City') {
+      dispatch(setCityAction(value))
+    } else {
+      dispatch(setStateAction(value))
+    }
   }
 
   return (
