@@ -4,6 +4,7 @@ import Title from './Title'
 import {Colors} from 'DokaanPOS/assets/styles/Colors'
 import {useDispatch} from 'react-redux'
 import {
+  setConfirmPasswordAction,
   setPasswordAction,
   setPhoneNumAction,
 } from 'DokaanPOS/services/redux/actions'
@@ -40,8 +41,12 @@ export default function Input ({
   const [phoneNum, setPhoneNum] = useState<string | undefined>(undefined)
   const [secureTextEntry, setSecureTextEntry] = useState<boolean>(true)
   const onChangePassword = (value: string) => {
-    setPassword(value)
-    dispatch(setPasswordAction(value))
+    if (label == 'Confirm New Password') {
+      dispatch(setConfirmPasswordAction(value))
+    } else {
+      setPassword(value)
+      dispatch(setPasswordAction(value))
+    }
   }
   const onChangePhoneNum = (value: string) => {
     setPhoneNum(value)

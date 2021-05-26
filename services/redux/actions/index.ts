@@ -19,3 +19,7 @@ export const setStateAction = (state: string) => ({
   type: 'SET_STATE',
   payload: state,
 })
+export const setConfirmPasswordAction = (confirmPassword: string) => ({
+  type: 'SET_CONFIRM_PASSWORD',
+  payload: confirmPassword,
+})

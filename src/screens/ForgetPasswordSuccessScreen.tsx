@@ -135,13 +135,16 @@ const ForgetPasswordSuccessScreen = () => {
                       numberOfLines={0}
                     />
                   </View>
-                  <Title
-                    textAlign='center'
-                    fontSize={17}
-                    title='Back to sign In'
-                    color={Colors.BLUE}
-                    numberOfLines={0}
-                  />
+                  <TouchableOpacity
+                    onPress={() => navigation.navigate('ResetPasswordScreen')}>
+                    <Title
+                      textAlign='center'
+                      fontSize={17}
+                      title='Back to sign In'
+                      color={Colors.BLUE}
+                      numberOfLines={0}
+                    />
+                  </TouchableOpacity>
                 </View>
               </View>
             </View>

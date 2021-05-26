@@ -1,6 +1,7 @@
 const DEFAULT_STATE = {
   showGifImage: 'yes' as string,
   password: null,
+  confirmPassword: null,
   phoneNum: null,
   city: null,
   state: null,
@@ -33,6 +34,11 @@ const applicationReducer = (state = DEFAULT_STATE, action: any) => {
       return {
         ...state,
         state: action.payload,
+      }
+    case 'SET_CONFIRM_PASSWORD':
+      return {
+        ...state,
+        confirmPassword: action.payload,
       }
     default:
       return state
