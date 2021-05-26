@@ -4,6 +4,7 @@ import SignInSignUpScreen from 'DokaanPOS/src/screens/SignInSignUpScreen'
 import SignInScreen from 'DokaanPOS/src/screens/SignInScreen'
 import SignUpScreen from 'DokaanPOS/src/screens/SignUpScreen'
 import StoreSignUpScreen from 'DokaanPOS/src/screens/StoreSignUpScreen'
+import ForgetPasswordScreen from 'DokaanPOS/src/screens/ForgetPasswordScreen'
 
 const AppNavigator = () => {
   const Stack = createStackNavigator()
@@ -14,6 +15,10 @@ const AppNavigator = () => {
       <Stack.Screen name='SignInScreen' component={SignInScreen} />
       <Stack.Screen name='SignUpScreen' component={SignUpScreen} />
       <Stack.Screen name='StoreSignUpScreen' component={StoreSignUpScreen} />
+      <Stack.Screen
+        name='ForgetPasswordScreen'
+        component={ForgetPasswordScreen}
+      />
     </Stack.Navigator>
   )
 }
