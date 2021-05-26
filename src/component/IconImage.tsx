@@ -7,10 +7,12 @@ export default function IconImage ({
   source,
   color,
   small,
+  style,
 }: {
   source: ImageSourcePropType
   color?: Colors
   small?: boolean
+  style?: {}
 }) {
   return (
     <Image
@@ -18,6 +20,7 @@ export default function IconImage ({
       style={[
         small ? {width: 20, height: 20} : Elements.icon,
         {tintColor: color},
+        style,
       ]}
     />
   )

@@ -27,13 +27,13 @@ export default function Input ({
   placeHolder = label,
 }: {
   onChangeText?: any
-  value: string
+  value?: string
   label: string
   keyboardType?: KeyboardType
   isPassword?: boolean
   background?: Colors
   isPhone?: boolean
-  placeHolder: string
+  placeHolder?: string
 }) {
   const dispatch = useDispatch()
   const [password, setPassword] = useState<string | undefined>(undefined)

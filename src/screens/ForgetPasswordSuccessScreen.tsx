@@ -1,22 +1,36 @@
 import {useNavigation} from '@react-navigation/core'
 import {Colors} from 'DokaanPOS/assets/styles/Colors'
-import {InterBoldFont, InterMediumFont} from 'DokaanPOS/assets/styles/Fonts'
+import {
+  InterBoldFont,
+  InterMediumFont,
+  RubikMedium,
+} from 'DokaanPOS/assets/styles/Fonts'
 import General from 'DokaanPOS/assets/styles/General'
 import Layout from 'DokaanPOS/assets/styles/Layout'
 import Button from 'DokaanPOS/src/component/Button'
 import Title from 'DokaanPOS/src/component/Title'
 import React from 'react'
 import {Dimensions, View} from 'react-native'
+import DeviceInfo from 'react-native-device-info'
 import Container from 'DokaanPOS/src/component/Container'
+import Elements from 'DokaanPOS/assets/styles/Elements'
 import {Controller, useForm} from 'react-hook-form'
 import Input from 'DokaanPOS/src/component/Input'
 import {Toast} from 'native-base'
 import {useSelector} from 'react-redux'
+import {TouchableOpacity} from 'react-native-gesture-handler'
+import SendEmail from 'DokaanPOS/assets/icons/send-email-icon.png'
 import IconImage from '../component/IconImage'
-import Close from 'DokaanPOS/assets/icons/close.png'
-const ForgetPasswordScreen = () => {
-  const navigation = useNavigation()
+import ImageStyles from 'DokaanPOS/assets/styles/ImageStyles'
 
+const ForgetPasswordSuccessScreen = () => {
+  const navigation = useNavigation()
+  interface RootState {
+    password: string
+  }
+  const selectPassword = (state: RootState) => state.password
+
+  const password = useSelector(selectPassword)
   const {
     control,
     handleSubmit,
@@ -26,7 +40,20 @@ const ForgetPasswordScreen = () => {
   })
 
   const onSubmit = (data: object) => {
-   navigation.navigate('ForgetPasswordSuccessScreen')
+    Toast.show({
+      text: 'Your password was successfully updated.',
+      textStyle: {
+        color: Colors.WHITE,
+        fontSize: 23,
+        fontFamily: InterMediumFont,
+      },
+      style: {backgroundColor: Colors.GREEN},
+      duration: 2000,
+      position: 'top',
+      onClose: reason => {},
+      buttonText: 'X',
+      buttonTextStyle: {color: Colors.WHITE, fontSize: 20},
+    })
   }
 
   return (
@@ -38,67 +65,54 @@ const ForgetPasswordScreen = () => {
             Layout.flexDirectionRow,
             Layout.largeCardPadding,
           ]}>
-          <IconImage source={Close} color={Colors.BEIGE} small />
+          <Title
+            title='Dokkan'
+            style={General.smallTopMargin}
+            fontFamily={RubikMedium}
+            fontSize={Dimensions.get('window').width / 40}
+            color={Colors.BLACK}
+          />
+
+          <Button
+            onClick={() => console.log('hi')}
+            txtColor={Colors.WHITE}
+            backgroundColor={Colors.GREEN}
+            title='Get help'
+            fontFamily={InterMediumFont}
+            fontSize={
+              DeviceInfo.isTablet()
+                ? Dimensions.get('window').width / 55
+                : Dimensions.get('window').width / 35
+            }
+            style={Elements.helpBtn}
+          />
         </View>
         <View style={[Layout.flexCenter]}>
           <View
             style={[
               General.whiteBackgroundColor,
-              General.seventyWidthPercentage,
+              Layout.widthHalf,
               General.mediumTopPadding,
               General.shadow,
               Layout.radius,
               General.mediumPaddingBottom,
             ]}>
-            <View style={[Layout.flexCenter]}>
+            <View style={[Layout.flexCenter, General.verticalPadding]}>
               <View
                 style={[
                   Layout.alignItemsFlexStart,
                   General.seventyWidthPercentage,
+                  Layout.flexCenter,
                 ]}>
+                <IconImage source={SendEmail} style={ImageStyles.mediumIcon} />
+                <Title title='Almost There!' fontFamily={InterBoldFont} />
                 <Title
-                  lineHeight={40}
-                  title='Reset Password'
-                  fontFamily={InterBoldFont}
-                  fontSize={20}
-                />
-                <Title
+                  title='Check your email inbox, we sent you a reset link.'
                   numberOfLines={0}
-                  title="Enter your email address and we'll send you 
-instructions on how to reset your password."
-                  fontSize={16}
                 />
               </View>
               <View style={[General.seventyWidthPercentage]}>
-                <Controller
-                  control={control}
-                  render={({field: {onChange, value}}) => (
-                    <Input
-                      keyboardType='email-address'
-                      label='Email Address'
-                      onChangeText={(value: string) => onChange(value)}
-                      value={value}
-                    />
-                  )}
-                  name='email'
-                  rules={{required: true}}
-                />
-
                 <View style={[General.smallTopPadding]}>
-                  <Button
-                    locked={!isValid}
-                    onClick={handleSubmit(onSubmit)}
-                    txtColor={Colors.WHITE}
-                    backgroundColor={Colors.BLUE}
-                    width='100%'
-                    title='Send Reset Link'
-                    fontFamily={InterMediumFont}
-                    fontSize={Dimensions.get('window').width / 50}
-                    style={[
-                      General.smallVerticalPadding,
-                      General.smallTopMargin,
-                    ]}
-                  />
                   <View
                     style={[
                       Layout.flexDirectionRow,
@@ -109,18 +123,25 @@ instructions on how to reset your password."
                     <Title
                       textAlign='center'
                       fontSize={17}
-                      title='Remembered your Password? '
+                      title='Did n’t receive any mail? '
                       numberOfLines={0}
                       color={Colors.LIGHT_GRAY}
                     />
                     <Title
                       textAlign='center'
                       fontSize={17}
-                      title='Back to Sign In'
+                      title='Resend Email'
                       color={Colors.BLUE}
                       numberOfLines={0}
                     />
                   </View>
+                  <Title
+                    textAlign='center'
+                    fontSize={17}
+                    title='Back to sign In'
+                    color={Colors.BLUE}
+                    numberOfLines={0}
+                  />
                 </View>
               </View>
             </View>
@@ -130,4 +151,4 @@ instructions on how to reset your password."
     </>
   )
 }
-export default ForgetPasswordScreen
+export default ForgetPasswordSuccessScreen
