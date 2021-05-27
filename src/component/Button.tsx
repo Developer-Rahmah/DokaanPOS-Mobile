@@ -43,6 +43,7 @@ export default function Button (props: IButton) {
         },
       ]}>
       <Title
+        numberOfLines={0}
         title={props.title}
         color={props.txtColor}
         fontFamily={props.fontFamily}
