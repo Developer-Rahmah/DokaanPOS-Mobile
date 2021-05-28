@@ -108,5 +108,13 @@ const Elements = StyleSheet.create({
     paddingHorizontal: 20,
     alignItems: 'center',
   },
+  headerContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: '50%',
+    paddingStart: 20,
+    alignItems: 'center',
+    height: '100%',
+  },
 })
 export default Elements

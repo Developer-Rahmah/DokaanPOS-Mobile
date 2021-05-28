@@ -1,6 +1,6 @@
-export const setShowGifImageAction = (showGifImage: string) => ({
-  type: 'SET_SHOW_GIF_ICON',
-  payload: showGifImage,
+export const setIsAuthAction = (isAuth: string) => ({
+  type: 'SET_IS_AUTH',
+  payload: isAuth,
 })
 
 export const setPasswordAction = (password: string) => ({

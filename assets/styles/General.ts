@@ -24,6 +24,9 @@ const General = StyleSheet.create({
   whiteBackgroundColor: {
     backgroundColor: Colors.WHITE,
   },
+  darkBlueBackgroundColor: {
+    backgroundColor: Colors.DARK_BLUE,
+  },
 
   horizontalPadding: {
     paddingHorizontal: 10,
@@ -79,6 +82,9 @@ const General = StyleSheet.create({
   largePadding: {
     paddingVertical: Dimensions.get('window').width / 27,
     paddingHorizontal: Dimensions.get('window').width / 37,
+  },
+  smallWidth: {
+    width: '17%',
   },
 })
 export default General

@@ -1,7 +1,8 @@
 import React from 'react'
-import {Image, ImageSourcePropType, View} from 'react-native'
+import {Dimensions, Image, ImageSourcePropType, View} from 'react-native'
 import {Colors} from 'DokaanPOS/assets/styles/Colors'
 import Elements from 'DokaanPOS/assets/styles/Elements'
+import deviceInfo from 'react-native-device-info'
 
 export default function IconImage ({
   source,
@@ -18,7 +19,16 @@ export default function IconImage ({
     <Image
       source={source}
       style={[
-        small ? {width: 20, height: 20} : Elements.icon,
+        small
+          ? {
+              width: deviceInfo.isTablet()
+                ? Dimensions.get('window').width / 35
+                : Dimensions.get('window').width / 30,
+              height: deviceInfo.isTablet()
+                ? Dimensions.get('window').width / 35
+                : Dimensions.get('window').width / 30,
+            }
+          : Elements.icon,
         {tintColor: color},
         style,
       ]}

@@ -60,7 +60,7 @@ const Layout = StyleSheet.create({
     width: '100%',
     height: Dimensions.get('window').height / 9,
     padding: 15,
-    backgroundColor: Colors.LIGHT_BLUE,
+    backgroundColor: Colors.DARK_BLUE,
     alignItems: 'center',
     flexDirection: 'row',
   },

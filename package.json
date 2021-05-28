@@ -17,6 +17,7 @@
     "base-64": "^1.0.0",
     "native-base": "^2.15.2",
     "react": "17.0.1",
+    "react-circular-progressbar": "^2.0.4",
     "react-hook-form": "^7.6.4",
     "react-native": "0.64.0",
     "react-native-device-info": "^8.1.3",

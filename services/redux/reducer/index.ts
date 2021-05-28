@@ -1,5 +1,5 @@
 const DEFAULT_STATE = {
-  showGifImage: 'yes' as string,
+  isAuth: 'yes' as string,
   password: null,
   confirmPassword: null,
   phoneNum: null,
@@ -9,10 +9,10 @@ const DEFAULT_STATE = {
 
 const applicationReducer = (state = DEFAULT_STATE, action: any) => {
   switch (action.type) {
-    case 'SET_SHOW_GIF_ICON':
+    case 'SET_IS_AUTH':
       return {
         ...state,
-        showGifImage: action.payload,
+        isAuth: action.payload,
       }
     case 'SET_PASSWORD':
       return {
