@@ -38,7 +38,7 @@ const AddProductScreen = () => {
 
   const onSubmit = (data: object) => {
     Toast.show({
-      text: 'Your password was successfully updated.',
+      text: 'product added successfully.',
       textStyle: {
         color: Colors.WHITE,
         fontSize: 23,
@@ -51,17 +51,20 @@ const AddProductScreen = () => {
       buttonText: 'X',
       buttonTextStyle: {color: Colors.WHITE, fontSize: 20},
     })
+    // navigation.goBack()
   }
 
   return (
     <>
       <Container scrollAble style={General.veryLightGrayBackground}>
-        <Header showBack title='Add Product' showRightBtn />
-        <View
-          style={[
-            Layout.flexDirectionRow,
-            Layout.largeCardPadding,
-          ]}></View>
+        <Header
+          showBack
+          title='Add Product'
+          showRightBtn
+          locked={!isValid}
+          onSubmit={handleSubmit(onSubmit)}
+        />
+        <View style={[Layout.flexDirectionRow, Layout.largeCardPadding]}></View>
         <View style={[Layout.flexCenter]}>
           <View
             style={[
@@ -80,13 +83,9 @@ const AddProductScreen = () => {
                 ]}>
                 <Title
                   lineHeight={40}
-                  title='Sign In'
+                  title='Product Information'
                   fontFamily={InterBoldFont}
                   fontSize={20}
-                />
-                <Title
-                  title='Hello there! Sign in and start managing your stores!'
-                  fontSize={16}
                 />
               </View>
               <View style={[General.seventyWidthPercentage]}>
@@ -94,50 +93,72 @@ const AddProductScreen = () => {
                   control={control}
                   render={({field: {onChange, value}}) => (
                     <Input
-                      label='Business Name'
+                      label='Product Name'
                       onChangeText={(value: string) => onChange(value)}
                       value={value}
                     />
                   )}
-                  name='name'
+                  name='productName'
                   rules={{required: true}}
                 />
-
                 <Controller
                   control={control}
                   render={({field: {onChange, value}}) => (
                     <Input
-                      label='Email Address'
-                      keyboardType='email-address'
+                      label='productDescription'
                       onChangeText={(value: string) => onChange(value)}
                       value={value}
                     />
                   )}
-                  name='email'
+                  name='productDescription'
                   rules={{required: true}}
                 />
-
                 <Controller
                   control={control}
                   render={({field: {onChange, value}}) => (
                     <Input
-                      isPassword
-                      label='Password'
+                      label='Product Barcode'
                       onChangeText={(value: string) => onChange(value)}
                       value={value}
                     />
                   )}
-                  name='password'
-                  // rules={{required: true}}
+                  name='productBarcode'
+                  rules={{required: true}}
                 />
-                <View style={Layout.alignItemsFlexEnd}>
-                  <TouchableOpacity
-                    onPress={() => navigation.navigate('ForgetPasswordScreen')}>
-                    <Title title='Forgot Password?' color={Colors.BLUE} />
-                  </TouchableOpacity>
+
+                <View style={[Layout.flexDirectionRow, Layout.spaceBetween]}>
+                  <View style={[Layout.widthHalf, Layout.paddingEnd]}>
+                    <Controller
+                      control={control}
+                      render={({field: {onChange, value}}) => (
+                        <Input
+                          label='Product Price'
+                          onChangeText={(value: string) => onChange(value)}
+                          value={value}
+                        />
+                      )}
+                      name='productPrice'
+                      rules={{required: true}}
+                    />
+                  </View>
+                  <View style={[Layout.widthHalf, Layout.paddingStart]}>
+                    <Controller
+                      control={control}
+                      render={({field: {onChange, value}}) => (
+                        <Input
+                          label='Unit Cost'
+                          onChangeText={(value: string) => onChange(value)}
+                          value={value}
+                        />
+                      )}
+                      name='unitCost'
+                      rules={{required: true}}
+                    />
+                  </View>
                 </View>
+
                 <View style={[General.smallTopPadding]}>
-                  <Button
+                  {/* <Button
                     locked={
                       !isValid ||
                       errors.name ||
@@ -152,8 +173,8 @@ const AddProductScreen = () => {
                     title='Sign In'
                     fontFamily={InterMediumFont}
                     fontSize={Dimensions.get('window').width / 50}
-                    style={General.smallVerticalPadding}
-                  />
+                    style={[General.smallVerticalPadding,General.smallTopMargin]}
+                  /> */}
                 </View>
               </View>
             </View>

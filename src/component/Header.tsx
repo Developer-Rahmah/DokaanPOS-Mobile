@@ -16,10 +16,14 @@ export default function Header ({
   title = 'Dokaan',
   showBack,
   showRightBtn,
+  locked,
+  onSubmit,
 }: {
   title: string
   showBack?: boolean
   showRightBtn?: boolean
+  locked: boolean
+  onSubmit: () => void
 }) {
   const navigation = useNavigation()
 
@@ -68,8 +72,9 @@ export default function Header ({
       {showRightBtn ? (
         <View style={[Layout.flexDirectionRow, General.smallWidth]}>
           <Button
+            locked={locked}
             title='save'
-            onClick={() => console.log('hi')}
+            onClick={ onSubmit}
             txtColor={Colors.WHITE}
             backgroundColor={Colors.BLUE}
             fontFamily={InterMediumFont}
