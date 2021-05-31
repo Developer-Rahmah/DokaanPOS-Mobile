@@ -5,6 +5,7 @@ const DEFAULT_STATE = {
   phoneNum: null,
   city: null,
   state: null,
+  showAlert: null,
 }
 
 const applicationReducer = (state = DEFAULT_STATE, action: any) => {
@@ -40,6 +41,12 @@ const applicationReducer = (state = DEFAULT_STATE, action: any) => {
         ...state,
         confirmPassword: action.payload,
       }
+    case 'SET_SHOW_ALERT':
+      return {
+        ...state,
+        showAlert: action.payload,
+      }
+
     default:
       return state
   }

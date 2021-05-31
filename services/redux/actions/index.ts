@@ -23,3 +23,7 @@ export const setConfirmPasswordAction = (confirmPassword: string) => ({
   type: 'SET_CONFIRM_PASSWORD',
   payload: confirmPassword,
 })
+export const setShowAlertAction = (showAlert: boolean) => ({
+  type: 'SET_SHOW_ALERT',
+  payload: showAlert,
+})

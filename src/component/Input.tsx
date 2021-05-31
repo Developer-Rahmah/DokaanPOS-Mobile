@@ -26,6 +26,7 @@ export default function Input ({
   value,
   isPhone = false,
   placeHolder = label,
+  rowComponents,
 }: {
   onChangeText?: any
   value?: string
@@ -35,6 +36,7 @@ export default function Input ({
   background?: Colors
   isPhone?: boolean
   placeHolder?: string
+  rowComponents?: boolean
 }) {
   const dispatch = useDispatch()
   const [password, setPassword] = useState<string | undefined>(undefined)
@@ -55,7 +57,20 @@ export default function Input ({
 
   return (
     <>
-      <View style={[Layout.flexStart, General.smallTopPadding]}>
+      <View
+        style={[
+          Layout.flexStart,
+          General.smallTopPadding,
+          rowComponents ? Layout.flexDirectionRow : null,
+          rowComponents ? Layout.alignItemsCenter : null,
+
+          {
+            borderBottomColor: rowComponents
+              ? Colors.LIGHT_GRAY_2
+              : 'transparent',
+            borderBottomWidth: rowComponents ? 1 : 0,
+          },
+        ]}>
         {isPassword ? (
           <>
             <Title
@@ -130,15 +145,20 @@ export default function Input ({
             <Title
               color={value || value == null ? Colors.LIGHT_GRAY : Colors.RED}
               title={label + '*'}
+              style={{width: '23%', textAlign: 'left'}}
             />
 
             <TextInput
+              textAlign={rowComponents ? 'right' : 'left'}
               placeholder={placeHolder}
               style={[
                 Elements.fieldContainer,
                 {
                   borderColor:
                     value || value == null ? Colors.LIGHT_GRAY : Colors.RED,
+                  borderWidth: rowComponents ? 0 : 1,
+                  width: rowComponents ? '77%' : '100%',
+                  // borderBottomWidth: 1,
                 },
               ]}
               onChangeText={onChangeText}

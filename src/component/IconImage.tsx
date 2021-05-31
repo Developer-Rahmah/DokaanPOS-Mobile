@@ -22,10 +22,10 @@ export default function IconImage ({
         small
           ? {
               width: deviceInfo.isTablet()
-                ? Dimensions.get('window').width / 35
+                ? Dimensions.get('window').width / 55
                 : Dimensions.get('window').width / 30,
               height: deviceInfo.isTablet()
-                ? Dimensions.get('window').width / 35
+                ? Dimensions.get('window').width / 55
                 : Dimensions.get('window').width / 30,
             }
           : Elements.icon,

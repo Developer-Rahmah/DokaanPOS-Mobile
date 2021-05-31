@@ -9,25 +9,28 @@ import General from 'DokaanPOS/assets/styles/General'
 import Layout from 'DokaanPOS/assets/styles/Layout'
 import Button from 'DokaanPOS/src/component/Button'
 import Title from 'DokaanPOS/src/component/Title'
-import React from 'react'
-import {Dimensions, View} from 'react-native'
+import React, {useState} from 'react'
+import {Dimensions, Modal, View} from 'react-native'
 import DeviceInfo from 'react-native-device-info'
 import Container from 'DokaanPOS/src/component/Container'
 import Elements from 'DokaanPOS/assets/styles/Elements'
 import {Controller, useForm} from 'react-hook-form'
 import Input from 'DokaanPOS/src/component/Input'
 import {Toast} from 'native-base'
-import {useSelector} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
 import {TouchableOpacity} from 'react-native-gesture-handler'
 import Header from 'DokaanPOS/src/component/Header'
+import PriceCheck from 'DokaanPOS/src/component/PriceCheck'
+import {setShowAlertAction} from 'DokaanPOS/services/redux/actions'
 const AddProductScreen = () => {
+  // const [showAlert, setShowAlert] = useState(false)
+  const dispatch = useDispatch()
   const navigation = useNavigation()
   interface RootState {
-    password: string
+    showAlert: boolean
   }
-  const selectPassword = (state: RootState) => state.password
-
-  const password = useSelector(selectPassword)
+  const selectShowAlert = (state: RootState) => state.showAlert
+  const showAlert = useSelector(selectShowAlert)
   const {
     control,
     handleSubmit,
@@ -37,21 +40,24 @@ const AddProductScreen = () => {
   })
 
   const onSubmit = (data: object) => {
-    Toast.show({
-      text: 'product added successfully.',
-      textStyle: {
-        color: Colors.WHITE,
-        fontSize: 23,
-        fontFamily: InterMediumFont,
-      },
-      style: {backgroundColor: Colors.GREEN},
-      duration: 2000,
-      position: 'top',
-      onClose: reason => {},
-      buttonText: 'X',
-      buttonTextStyle: {color: Colors.WHITE, fontSize: 20},
-    })
+    // Toast.show({
+
+    //   text: 'product added successfully.',
+    //   textStyle: {
+    //     color: Colors.WHITE,
+    //     fontSize: 23,
+    //     fontFamily: InterMediumFont,
+    //   },
+    //   style: {backgroundColor: Colors.GREEN},
+    //   duration: 2000,
+    //   position: 'top',
+    //   onClose: reason => {},
+    //   buttonText: 'X',
+    //   buttonTextStyle: {color: Colors.WHITE, fontSize: 20},
+    // })
     // navigation.goBack()
+    // setShowAlert(true)
+    dispatch(setShowAlertAction(true))
   }
 
   return (
@@ -156,26 +162,16 @@ const AddProductScreen = () => {
                     />
                   </View>
                 </View>
+                {showAlert ? (
+                  <Modal
+                    transparent={true}
+                    animationType='slide'
+                    visible={showAlert}>
+                    <PriceCheck />
+                  </Modal>
+                ) : null}
 
-                <View style={[General.smallTopPadding]}>
-                  {/* <Button
-                    locked={
-                      !isValid ||
-                      errors.name ||
-                      errors.email ||
-                      password == null ||
-                      password == ''
-                    }
-                    onClick={handleSubmit(onSubmit)}
-                    txtColor={Colors.WHITE}
-                    backgroundColor={Colors.BLUE}
-                    width='100%'
-                    title='Sign In'
-                    fontFamily={InterMediumFont}
-                    fontSize={Dimensions.get('window').width / 50}
-                    style={[General.smallVerticalPadding,General.smallTopMargin]}
-                  /> */}
-                </View>
+                <View style={[General.smallTopPadding]}></View>
               </View>
             </View>
           </View>
