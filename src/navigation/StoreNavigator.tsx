@@ -2,6 +2,9 @@ import {createStackNavigator} from '@react-navigation/stack'
 import React from 'react'
 import AddProductScreen from '../screens/product/AddProductScreen'
 import {createDrawerNavigator} from '@react-navigation/drawer'
+import Layout from 'DokaanPOS/assets/styles/Layout'
+import Elements from 'DokaanPOS/assets/styles/Elements'
+import Menu from '../component/Menu'
 const Drawer = createDrawerNavigator()
 
 const Stack = createStackNavigator()
@@ -9,8 +12,9 @@ const Stack = createStackNavigator()
 const StoreNavigator = () => {
   return (
     <Drawer.Navigator
-    // drawerType={dimensions.width >= 768 ? 'permanent' : 'front'}
-    >
+      drawerContent={props => <Menu {...props} />}
+      drawerType={'back'}
+      drawerStyle={Elements.drawer}>
       {/* <Stack.Navigator headerMode='none'> */}
       <Stack.Screen name='AddProductScreen' component={AddProductScreen} />
       {/* </Stack.Navigator> */}

@@ -9,14 +9,22 @@ const Elements = StyleSheet.create({
     textAlign: 'center',
     lineHeight: Dimensions.get('window').width / 30,
   },
-
+  borderHorizontalSeparator: {
+    width: '100%',
+    height: 1,
+    backgroundColor: Colors.WHITE,
+    marginVertical: 5,
+  },
   summary: {
     color: Colors.LIGHT_GRAY,
     fontFamily: InterRegularFont,
     fontSize: 15,
     textAlign: 'left',
   },
-
+  drawer: {
+    width: '80%',
+    backgroundColor: Colors.DARK_BLUE,
+  },
   searchInputContainer: {
     padding: 7,
     borderRadius: Dimensions.get('window').width / 7,
