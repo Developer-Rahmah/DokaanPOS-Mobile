@@ -44,6 +44,10 @@ const General = StyleSheet.create({
   mediumVerticalPadding: {
     paddingVertical: Dimensions.get('window').height / 35,
   },
+  largeTopPadding: {
+    paddingTop: Dimensions.get('window').height / 5,
+  },
+
   smallVerticalPadding: {
     paddingVertical: Dimensions.get('window').height / 200,
   },
@@ -67,7 +71,9 @@ const General = StyleSheet.create({
   border: {
     borderWidth: 1,
   },
-
+  whiteBorder: {
+    borderColor: Colors.WHITE,
+  },
   shadow: {
     elevation: 1.5,
     shadowColor: Colors.BLACK,

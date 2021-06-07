@@ -3,7 +3,7 @@ import {Text} from 'react-native'
 import Styles from 'DokaanPOS/assets/styles'
 import {InterBoldFont, InterRegularFont} from 'DokaanPOS/assets/styles/Fonts'
 import Elements from 'DokaanPOS/assets/styles/Elements'
-import { Colors } from 'DokaanPOS/assets/styles/Colors'
+import {Colors} from 'DokaanPOS/assets/styles/Colors'
 
 export default function Title ({
   title,
@@ -13,7 +13,7 @@ export default function Title ({
   fontFamily = InterRegularFont,
   fontSize = 19,
   textAlign = 'center',
-  lineHeight=40
+  lineHeight = 40,
 }: {
   title?: string
   color?: string
@@ -22,8 +22,7 @@ export default function Title ({
   fontFamily?: string
   fontSize?: number
   textAlign?: string
-  lineHeight?:number
-
+  lineHeight?: number
 }) {
   return (
     <Text
@@ -34,7 +33,7 @@ export default function Title ({
           fontFamily: fontFamily,
           fontSize: fontSize,
           textAlign: textAlign,
-          lineHeight:lineHeight
+          lineHeight: lineHeight,
         },
         style,
       ]}

@@ -1,20 +1,21 @@
 import {useNavigation} from '@react-navigation/native'
-import styles from 'DokaanPOS/assets/styles'
 import {Colors} from 'DokaanPOS/assets/styles/Colors'
-import General from 'DokaanPOS/assets/styles/General'
+import {InterRegularFont} from 'DokaanPOS/assets/styles/Fonts'
 import Layout from 'DokaanPOS/assets/styles/Layout'
 import React, {useState} from 'react'
-import {GestureResponderEvent, Text, TouchableOpacity, View} from 'react-native'
-import {useSelector} from 'react-redux'
+import {Text, TouchableOpacity, View} from 'react-native'
+import IconImage from '../IconImage'
+import Title from '../Title'
 
 export default function MenuItem ({
   label,
   screenName,
+  icon,
 }: {
   label: string
   screenName: string
+  icon: any
 }) {
-  // const MenuItem = (label: string, screenName: string) => {
   const [collapsed, setCollapsed] = useState(true)
   const navigation = useNavigation()
 
@@ -29,19 +30,21 @@ export default function MenuItem ({
     <View>
       {/* The parent menu item */}
       <TouchableOpacity
-        style={Layout.smallCardPadding}
+        style={[
+          Layout.smallCardPadding,
+          Layout.flexDirectionRow,
+          Layout.alignItemsCenter,
+          Layout.cardPadding,
+        ]}
         onPress={handleItemPress}>
-        <Text
-          style={[
-            // General.bold,
-            {
-              color: Colors.WHITE,
-
-              fontSize: 19,
-            },
-          ]}>
-          {label}
-        </Text>
+        <IconImage source={icon} />
+        <View style={Layout.paddingStart}>
+          <Title
+            title={label}
+            color={Colors.WHITE}
+            fontFamily={InterRegularFont}
+          />
+        </View>
       </TouchableOpacity>
     </View>
   )

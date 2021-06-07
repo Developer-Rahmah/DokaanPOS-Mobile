@@ -10,10 +10,10 @@ const Elements = StyleSheet.create({
     lineHeight: Dimensions.get('window').width / 30,
   },
   borderHorizontalSeparator: {
-    width: '100%',
     height: 1,
     backgroundColor: Colors.WHITE,
     marginVertical: 5,
+    marginHorizontal: 20,
   },
   summary: {
     color: Colors.LIGHT_GRAY,
