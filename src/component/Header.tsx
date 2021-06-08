@@ -1,7 +1,8 @@
 import React from 'react'
 import {View, TouchableOpacity, Dimensions} from 'react-native'
 import {useNavigation} from '@react-navigation/native'
-import backIcon from 'DokaanPOS/assets/icons/arrow_back.png'
+import BackIcon from 'DokaanPOS/assets/icons/arrow_back.png'
+import Menu from 'DokaanPOS/assets/icons/menu.png'
 import Layout from 'DokaanPOS/assets/styles/Layout'
 import Elements from 'DokaanPOS/assets/styles/Elements'
 import IconImage from './IconImage'
@@ -17,13 +18,15 @@ export default function Header ({
   showBack,
   showRightBtn,
   locked,
-  onSubmit,
+  onSubmit = () => console.log('hi'),
+  showMenu = false,
 }: {
-  title: string
+  title?: string
   showBack?: boolean
   showRightBtn?: boolean
-  locked: boolean
-  onSubmit: () => void
+  locked?: boolean
+  onSubmit?: () => void
+  showMenu?: boolean
 }) {
   const navigation = useNavigation()
 
@@ -36,17 +39,22 @@ export default function Header ({
         General.darkBlueBackgroundColor,
       ]}>
       {/* Back button */}
+
       <View style={[Elements.headerContainer, General.mediumVerticalPadding]}>
         <TouchableOpacity
           style={[
             Layout.headerIcon,
-            showBack ? Layout.displayFlex : Layout.displayNone,
+            showBack || showMenu ? Layout.displayFlex : Layout.displayNone,
             Layout.alignItemsCenter,
           ]}
           onPress={() => {
-            navigation.goBack()
+            showBack ? navigation.goBack() : navigation.openDrawer()
           }}>
-          <IconImage source={backIcon} color={Colors.LIGHT_GREEN} small />
+          <IconImage
+            source={showBack ? BackIcon : Menu}
+            color={Colors.WHITE}
+            small
+          />
         </TouchableOpacity>
         <View
           style={[
@@ -74,7 +82,7 @@ export default function Header ({
           <Button
             locked={locked}
             title='save'
-            onClick={ onSubmit}
+            onClick={onSubmit}
             txtColor={Colors.WHITE}
             backgroundColor={Colors.BLUE}
             fontFamily={InterMediumFont}

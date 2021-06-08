@@ -1,9 +1,11 @@
 import React, {useState} from 'react'
 import styles from 'DokaanPOS/assets/styles'
-import {Dimensions, TouchableOpacity} from 'react-native'
+import {Dimensions, ImageSourcePropType, TouchableOpacity} from 'react-native'
 import {Colors} from 'DokaanPOS/assets/styles/Colors'
 import Title from 'DokaanPOS/src/component/Title'
 import Layout from 'DokaanPOS/assets/styles/Layout'
+import IconImage from './IconImage'
+import General from 'DokaanPOS/assets/styles/General'
 interface IButton {
   onClick: () => void
   locked?: boolean
@@ -16,6 +18,8 @@ interface IButton {
   fontFamily?: string
   fontSize?: number
   borderColor?: Colors
+  withLeftIcon?: boolean
+  iconSource?: ImageSourcePropType
 }
 export default function Button (props: IButton) {
   const handlePress = async () => {
@@ -42,6 +46,13 @@ export default function Button (props: IButton) {
           borderColor: props.borderColor,
         },
       ]}>
+      {props.withLeftIcon ? (
+        <IconImage
+          source={props.iconSource}
+          style={General.smallEndMargin}
+          small
+        />
+      ) : null}
       <Title
         numberOfLines={0}
         title={props.title}

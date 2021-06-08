@@ -1,6 +1,7 @@
 import {Dimensions, I18nManager, StyleSheet} from 'react-native'
 import {Colors} from 'DokaanPOS/assets/styles/Colors'
 import {InterRegularFont} from 'DokaanPOS/assets/styles/Fonts'
+const height = Dimensions.get('window').height
 
 const Elements = StyleSheet.create({
   title: {
@@ -123,6 +124,16 @@ const Elements = StyleSheet.create({
     paddingStart: 20,
     alignItems: 'center',
     height: '100%',
+  },
+  receiptsContainer: {
+    height: height / 1.167,
+    justifyContent: 'space-between',
+  },
+  searchOnReceiptsContainer: {
+    width: '31%',
+  },
+  EmptyReceiptsContainer: {
+    width: '67%',
   },
 })
 export default Elements

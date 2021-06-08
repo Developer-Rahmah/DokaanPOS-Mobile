@@ -1,4 +1,4 @@
-import {NavigationContext} from '@react-navigation/native'
+import {NavigationContext, useNavigation} from '@react-navigation/native'
 import styles from 'DokaanPOS/assets/styles'
 import React from 'react'
 import {useDispatch} from 'react-redux'
@@ -19,9 +19,9 @@ import Receipts from 'DokaanPOS/assets/icons/Receipts.png'
 import Settings from 'DokaanPOS/assets/icons/settings.png'
 import MenuBtnItem from './MenuBtnItem'
 
-const Menu = (navigation: any) => {
+const Menu = () => {
   const dispatch = useDispatch()
-
+  const navigation = useNavigation()
   return (
     <ScrollView>
       <NavigationContext.Provider value={navigation}>
@@ -45,8 +45,16 @@ const Menu = (navigation: any) => {
         <Separator />
         <View style={[Layout.cardPadding]}>
           <MenuItem icon={Register} label={'Register'} screenName='test' />
-          <MenuItem icon={Receipts} label={'Receipts'} screenName='test' />
-          <MenuItem icon={Settings} label={'Settings'} screenName='test' />
+          <MenuItem
+            icon={Receipts}
+            label={'Receipts'}
+            screenName='ReceiptsScreen'
+          />
+          <MenuItem
+            icon={Settings}
+            label={'Settings'}
+            screenName='ReceiptsScreen'
+          />
           <View style={General.largeTopPadding}>
             <MenuBtnItem label='Close Register' color={Colors.WHITE} />
             <View style={General.paddingTop}>

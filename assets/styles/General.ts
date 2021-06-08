@@ -6,12 +6,17 @@ const General = StyleSheet.create({
     width: '100%',
     height: '100%',
   },
-
+  fullHeight: {
+    height: '100%',
+  },
   lightGrayBackground: {
     backgroundColor: Colors.BEIGE,
   },
   veryLightGrayBackground: {
     backgroundColor: Colors.VERY_LIGHT_GRAY,
+  },
+  smallEndMargin: {
+    marginEnd: 7,
   },
 
   greenBackground: {
@@ -43,6 +48,9 @@ const General = StyleSheet.create({
   },
   mediumVerticalPadding: {
     paddingVertical: Dimensions.get('window').height / 35,
+  },
+  mediumPadding: {
+    padding: Dimensions.get('window').height / 35,
   },
   largeTopPadding: {
     paddingTop: Dimensions.get('window').height / 5,
