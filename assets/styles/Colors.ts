@@ -16,4 +16,5 @@ export enum Colors {
   DARK_BLUE = 'rgb(28,32,60)',
   DARK_GRAY_2 = '#7e84a3',
   LIGHT_GRAY_2 = '#d7dbec',
+  LIGHT_GRAY_3 = '#e6e9f4',
 }

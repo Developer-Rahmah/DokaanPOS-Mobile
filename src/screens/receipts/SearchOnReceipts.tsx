@@ -1,15 +1,8 @@
 import General from 'DokaanPOS/assets/styles/General'
 import Layout from 'DokaanPOS/assets/styles/Layout'
 import React from 'react'
-import {View, Dimensions} from 'react-native'
-import EmptyReceipt from 'DokaanPOS/assets/images/receipts-empty.png'
-import Add from 'DokaanPOS/assets/icons/add.png'
-import IconImage from 'DokaanPOS/src/component/IconImage'
-import ImageStyles from 'DokaanPOS/assets/styles/ImageStyles'
-import Title from 'DokaanPOS/src/component/Title'
-import {InterBoldFont, InterMediumFont} from 'DokaanPOS/assets/styles/Fonts'
-import Button from 'DokaanPOS/src/component/Button'
-import {Colors} from 'DokaanPOS/assets/styles/Colors'
+import {View} from 'react-native'
+import SearchBar from 'DokaanPOS/src/component/SearchBar'
 
 export default function SearchOnReceipts ({style = {}}: {style?: object}) {
   return (
@@ -20,9 +13,10 @@ export default function SearchOnReceipts ({style = {}}: {style?: object}) {
           General.fullScreen,
           General.shadow,
           Layout.radius,
-          Layout.flexCenter,
           General.fullHeight,
-        ]}></View>
+        ]}>
+        <SearchBar placeHolder='Search by receipt number' />
+      </View>
     </View>
   )
 }

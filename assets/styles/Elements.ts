@@ -16,6 +16,9 @@ const Elements = StyleSheet.create({
     marginVertical: 5,
     marginHorizontal: 20,
   },
+  searchInput: {
+    height: 50,
+  },
   summary: {
     color: Colors.LIGHT_GRAY,
     fontFamily: InterRegularFont,
@@ -27,11 +30,10 @@ const Elements = StyleSheet.create({
     backgroundColor: Colors.DARK_BLUE,
   },
   searchInputContainer: {
-    padding: 7,
-    borderRadius: Dimensions.get('window').width / 7,
-    borderColor: Colors.GRAY,
-    borderWidth: 1,
-    backgroundColor: Colors.LIGHT_YELLOW,
+    height: '10%',
+    padding: 30,
+    borderBottomColor: Colors.LIGHT_GRAY_3,
+    borderBottomWidth: 1,
   },
   inputContainer: {
     width: '90%',
