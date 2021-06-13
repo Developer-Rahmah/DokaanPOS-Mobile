@@ -9,11 +9,11 @@ import GamePhoto5 from 'DokaanPOS/assets/images/game_photo_5.jpeg'
 import GamePhoto6 from 'DokaanPOS/assets/images/game_photo_6.jpeg'
 import GamePhoto7 from 'DokaanPOS/assets/images/game_photo_7.jpeg'
 import _ from 'lodash'
-import {LigaDataTaskRequest} from 'DokaanPOS/services/hooks/interface'
+import {DokaanPOS/Request} from 'DokaanPOS/services/hooks/interface'
 
 /**
  *
- * @param {import('DokaanPOS/services/hooks/interface').LigaDataTaskRequest} config
+ * @param {import('DokaanPOS/services/hooks/interface').DokaanPOS/Request} config
  */
 export const useRequest = ({
   uri,
@@ -154,13 +154,13 @@ export const useRequest = ({
 
 /**
  *
- * @param {import('DokaanPOS/services/hooks/interface').LigaDataTaskRequest} config
+ * @param {import('DokaanPOS/services/hooks/interface').DokaanPOS/Request} config
  */
 export const useGet = config => useRequest({...config, method: 'GET'})
 
 /**
  *
- * @param {import('DokaanPOS/services/hooks/interface').LigaDataTaskRequest} config
+ * @param {import('DokaanPOS/services/hooks/interface').DokaanPOS/Request} config
  */
 export const usePost = (config, automatic = false) =>
   useRequest({...config, method: 'POST', automatic})

@@ -1,6 +1,6 @@
 import {AxiosRequestConfig, AxiosResponse} from 'axios';
 
-export interface LigaDataTaskRequest {
+export interface DokaanPOS/Request {
   uri: string;
   query: any;
   body: any;

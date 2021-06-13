@@ -82,6 +82,10 @@ const General = StyleSheet.create({
   whiteBorder: {
     borderColor: Colors.WHITE,
   },
+  grayBottomBorder: {
+    borderBottomColor: Colors.LIGHT_GRAY_3,
+    borderBottomWidth: 1,
+  },
   shadow: {
     elevation: 1.5,
     shadowColor: Colors.BLACK,
