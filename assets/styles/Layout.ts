@@ -33,7 +33,11 @@ const Layout = StyleSheet.create({
   widthHalf: {
     width: '50%',
   },
-
+  rowViews: {
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    height: 40,
+  },
   cardPadding: {
     padding: 20,
   },
@@ -74,6 +78,10 @@ const Layout = StyleSheet.create({
   },
   alignItemsFlexStart: {
     alignItems: 'flex-start',
+  },
+
+  justifyEnd: {
+    justifyContent: 'flex-end',
   },
   statusBarHight: {
     height: Dimensions.get('window').height / 40,
