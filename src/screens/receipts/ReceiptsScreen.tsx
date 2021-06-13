@@ -8,6 +8,7 @@ import Elements from 'DokaanPOS/assets/styles/Elements'
 import {ScrollView} from 'react-native-gesture-handler'
 import Header from 'DokaanPOS/src/component/Header'
 import SearchOnReceipts from './SearchOnReceipts'
+import ReceiptInfo from './ReceiptInfo'
 const ReceiptsScreen = () => {
   const navigation = useNavigation()
 
@@ -23,7 +24,8 @@ const ReceiptsScreen = () => {
             Elements.receiptsContainer,
           ]}>
           <SearchOnReceipts style={Elements.searchOnReceiptsContainer} />
-          <EmptyReceipts style={[Elements.EmptyReceiptsContainer]} />
+          <ReceiptInfo style={[Elements.EmptyReceiptsContainer]} />
+          {/* <EmptyReceipts style={[Elements.EmptyReceiptsContainer]} /> */}
         </View>
       </ScrollView>
     </>
