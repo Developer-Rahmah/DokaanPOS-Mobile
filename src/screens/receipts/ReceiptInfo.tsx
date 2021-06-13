@@ -11,6 +11,7 @@ import Printer from 'DokaanPOS/assets/icons/printer.png'
 import Email from 'DokaanPOS/assets/icons/email.png'
 import Item from 'DokaanPOS/src/component/Item'
 import RowOfReceipt from './RowOfReceipt'
+import Elements from 'DokaanPOS/assets/styles/Elements'
 
 export default function ReceiptInfo ({style = {}}: {style?: object}) {
   return (
@@ -25,13 +26,9 @@ export default function ReceiptInfo ({style = {}}: {style?: object}) {
         ]}>
         <View
           style={[
-            // General.whiteBackgroundColor,
-            // General.fullScreen,
             General.grayBottomBorder,
-            // General.fullHeight,
             Layout.flexDirectionRow,
             Layout.spaceBetween,
-            // General.mediumPadding,
           ]}>
           <View style={{alignItems: 'flex-start'}}>
             <Title fontFamily={InterBoldFont} title='Order ID: #342534536 ' />
@@ -62,10 +59,7 @@ export default function ReceiptInfo ({style = {}}: {style?: object}) {
               title='Refund'
               fontFamily={InterMediumFont}
               fontSize={Dimensions.get('window').width / 70}
-              style={{
-                paddingHorizontal: 20,
-                paddingVertical: 0,
-              }}
+              style={Elements.smallBtn}
             />
           </View>
         </View>

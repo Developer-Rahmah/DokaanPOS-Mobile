@@ -10,6 +10,10 @@ const Elements = StyleSheet.create({
     textAlign: 'center',
     lineHeight: Dimensions.get('window').width / 30,
   },
+  smallBtn: {
+    paddingHorizontal: 20,
+    paddingVertical: 0,
+  },
   borderHorizontalSeparator: {
     height: 1,
     backgroundColor: Colors.WHITE,
